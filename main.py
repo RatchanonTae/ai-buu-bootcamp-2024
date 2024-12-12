@@ -27,11 +27,11 @@ from contextlib import asynccontextmanager
 app = FastAPI()
 
 # ข้อมูล token และ channel secret สำหรับ LINE
-ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "")
-CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "")
+ACCESS_TOKEN = os.getenv("2e9nNnkAq8ya1Dq+G5om9PLFlfbG6F2m1kxRaF0HOBZMYmc/ZdnB185UENGL9q16hAnj59UdIlLPIGS+J4qMrJSGltftHbfbKg4TnpoA9XipEyOyfFXSkxNxJ2/aXgQhkCy1pzI0XEi1jZDqCGmBbQdB04t89/1O/w1cDnyilFU=", "")
+CHANNEL_SECRET = os.getenv("6ed17b1d2e66bb4f19e22374418d1335", "")
 
 # ข้อมูล Gemini api key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY = os.getenv("AIzaSyC6IGJh2Gv8w-diNn4aiSPjz7mj8S7njEo", "")
 
 # การเชื่อมต่อ และตั้งค่าข้อมูลเพื่อเรียกใช้งาน LINE Messaging API
 configuration = Configuration(access_token=ACCESS_TOKEN)
@@ -240,10 +240,11 @@ gemini = GeminiRAGSystem(
 async def lifespan(app: FastAPI):
     # ข้อมูลตัวอย่างที่ใช้สำหรับ Gemini
     sample_documents = [
-        "จิรภัทร ทำดี คือ ชายหนุ่มที่มีความสามารถในการเขียนโปรแกรมที่มาจากบริษัท ClickNext ที่เป็นบริษัทด้านการพัฒนาโปรแกรมที่มีชื่อเสียง",
-        "จิรภัทร ทำดี มีชื่อเล่นว่า ปาล์ม เกิดวันที่ 25 มกราคม 2555 ที่จังหวัดสระบุรี ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาวิศวกรรมคอมพิวเตอร์",
-        "งาน BUU-Bootcamp-2024 จัดที่มหาวิทยาลัยบูรพา ในวันที่ 25 มกราคม ปีค.ศ.2024 โดยมีการจัดกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับการพัฒนาซอฟต์แวร์ เวลา 9:00 น. - 16:00 น.",
+        "รัชชานนท์ จาระนัย คือ ชายหนุ่มที่มีความสามารถในการเขียนโปรแกรมที่มาจากมหาวิทยาลัยบูรพา",
+        "รัชชานนท์ จาระนัย มีชื่อเล่นว่า โปเต้ เกิดวันที่ 5 กรกฏาคม 2546 ที่จังหวัดระยอง ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาปัญญษประดิษฐ์ประยุกต์และเทคโนโลยีอัจฉริยะ",
+        "งาน BUU-Bootcamp-2024 จัดที่มหาวิทยาลัยบูรพา ในวันที่ 12 ธันวาคม ปีค.ศ.2024 โดยมีการจัดกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับการพัฒนาซอฟต์แวร์ เวลา 8:30 น. - 16:30 น.",
         "มหาวิทยาลัยบูรพา สาขาวิชาAI ปีการศึกษา 2565 มีนักศึกษาจำนวน 100 คน มีอาจารย์ที่ปรึกษา 10 คน"
+        "ClickNext team Al มี พี่เจ๋ง ทำน้าที่เป็น Dev, พี่ดาว ทำหน้าที่เป็น BA,พี่ออย ทำหน้าที่เป็น BA, พี่ปาล์ม ทำหน้าที่ Backend, และ พี่ชวน ทำหน้าที่ Dataops
     ]
     
     # เพิ่มข้อมูลตัวอย่างลงใน Gemini
